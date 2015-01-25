@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C81f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,66 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XB-Y6-m9N">
+                                <rect key="frame" x="215" y="120" width="171" height="30"/>
+                                <state key="normal" title="Select from Cameral Roll">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showCameraRoll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QwV-FU-yZa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhu-ie-2Wk">
+                                <rect key="frame" x="255" y="40" width="90" height="30"/>
+                                <state key="normal" title="Take a Photo">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="camBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="czk-io-2uL"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="boom" translatesAutoresizingMaskIntoConstraints="NO" id="lEE-fH-2ah">
+                                <rect key="frame" x="26" y="175" width="548" height="100"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmw-rM-jnr">
+                                <rect key="frame" x="283" y="82" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCaptureImageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mjp-xj-sN9"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="lEE-fH-2ah" secondAttribute="centerX" id="9yy-gy-jUa"/>
+                            <constraint firstItem="lEE-fH-2ah" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="wfy-db-euE" secondAttribute="top" id="Bxj-Oi-MQc"/>
+                            <constraint firstItem="uhu-ie-2Wk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="OXW-Va-Mex"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="lEE-fH-2ah" secondAttribute="trailing" constant="10" id="dr4-1i-tk6"/>
+                            <constraint firstItem="lEE-fH-2ah" firstAttribute="top" secondItem="0XB-Y6-m9N" secondAttribute="bottom" constant="25" id="e5l-fp-ryD"/>
+                            <constraint firstAttribute="centerX" secondItem="0XB-Y6-m9N" secondAttribute="centerX" id="eHG-at-TeT"/>
+                            <constraint firstAttribute="centerX" secondItem="uhu-ie-2Wk" secondAttribute="centerX" id="ehQ-Rj-e0z"/>
+                            <constraint firstItem="0XB-Y6-m9N" firstAttribute="top" secondItem="uhu-ie-2Wk" secondAttribute="bottom" constant="50" id="hNI-Yj-xUh"/>
+                            <constraint firstAttribute="leadingMargin" relation="greaterThanOrEqual" secondItem="lEE-fH-2ah" secondAttribute="leading" constant="-10" id="ivF-cs-fTX"/>
+                            <constraint firstItem="lEE-fH-2ah" firstAttribute="top" secondItem="0XB-Y6-m9N" secondAttribute="bottom" constant="25" id="k9h-EH-aPI"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cameraButton" destination="uhu-ie-2Wk" id="NTW-q5-EIG"/>
+                        <outlet property="imageView" destination="lEE-fH-2ah" id="ulW-oy-4zr"/>
+                        <outlet property="photoLibraryButton" destination="0XB-Y6-m9N" id="Rez-WT-AV3"/>
+                        <outlet property="saveButton" destination="Lmw-rM-jnr" id="12U-zc-d7v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="510"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="boom" width="100" height="100"/>
+    </resources>
 </document>

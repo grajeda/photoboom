@@ -14,6 +14,7 @@
 		471E9D341A6F5CAD009D9032 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 471E9D331A6F5CAD009D9032 /* Images.xcassets */; };
 		471E9D371A6F5CAD009D9032 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 471E9D351A6F5CAD009D9032 /* LaunchScreen.xib */; };
 		471E9D431A6F5CAD009D9032 /* PhotoBoomTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 471E9D421A6F5CAD009D9032 /* PhotoBoomTests.m */; };
+		47C15E571A733B2E001C24B4 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C15E561A733B2E001C24B4 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		471E9D3C1A6F5CAD009D9032 /* PhotoBoomTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoBoomTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		471E9D411A6F5CAD009D9032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		471E9D421A6F5CAD009D9032 /* PhotoBoomTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoBoomTests.m; sourceTree = "<group>"; };
+		47C15E561A733B2E001C24B4 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47C15E571A733B2E001C24B4 /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +66,7 @@
 		471E9D1A1A6F5CAD009D9032 = {
 			isa = PBXGroup;
 			children = (
+				47C15E561A733B2E001C24B4 /* MobileCoreServices.framework */,
 				471E9D251A6F5CAD009D9032 /* PhotoBoom */,
 				471E9D3F1A6F5CAD009D9032 /* PhotoBoomTests */,
 				471E9D241A6F5CAD009D9032 /* Products */,
@@ -414,6 +418,7 @@
 				471E9D481A6F5CAD009D9032 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		471E9D491A6F5CAD009D9032 /* Build configuration list for PBXNativeTarget "PhotoBoomTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +427,7 @@
 				471E9D4B1A6F5CAD009D9032 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
