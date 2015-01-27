@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //Connect to Parse for PhotoBoom application ID
+    [Parse setApplicationId:@"as0H9T2IbqvUCkAEWfMbAGTBTMBVPMO2UJWkqMJo"
+                  clientKey:@"Z5LpbXawAzxSxmTLC2h8bVrExPhk7OhzbbuskF8e"];
+    
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
     return YES;
 }
 

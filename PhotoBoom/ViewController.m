@@ -51,6 +51,36 @@ BOOL isPad() {
         
     }
     
+    //TODO: Replace with actual user info, collected from the user
+    //Add Dummy Parse user information
+    
+    PFUser *user = [PFUser user];
+    user.username = @"Techlifter";
+    user.password = @"123ABC";
+    user.email = @"techlifter@perryjoshua.com";
+    
+    // other fields can be set if you want to save more information
+    user[@"phone"] = @"520-245-9677";
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            // Hooray! Let them use the app now.
+        } else {
+            NSString *errorString = [error userInfo][@"There was a problem signing in with Parse"];
+            // Show the errorString somewhere and let the user try again.
+            
+            UIAlertView *parseSignInErrorAlertView = [[UIAlertView alloc] initWithTitle:@"Parse Sign In Error"
+                                                                  message:errorString
+                                                                 delegate:nil
+                                                        cancelButtonTitle:@"OK"
+                                                        otherButtonTitles: nil];
+            
+            [parseSignInErrorAlertView show];
+        }
+    }];
+    
+
+    
 }
 
 
