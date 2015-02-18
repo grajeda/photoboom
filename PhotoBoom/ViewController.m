@@ -159,14 +159,26 @@ BOOL isPad() {
     //display the image
     self.imageView.image = image;
     
+    //Resize the UIImageView to fix the image - NOT WHAT WE WANT. THE IMAGE IS LIKELY TO BE HUGE. BETTER TO MAKE IT FIT A FIXED WIDTH THRESHOLD
+    self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, image.size.width, image.size.height);
+    
+    //An attempt to resize the imageview. Something that needs tweaking
+    /*
+     CGSize imageSize = image.size;
+    CGSize viewSize = self.imageView.frame.size;
+    
+    CGFloat correctImageViewHeight = (viewSize.width / imageSize.width) * imageSize.height;
+    self.imageView.frame = CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, CGRectGetWidth(self.imageView.bounds), correctImageViewHeight);
     
     
     NSLog(@"self.imageView.frame.origin.x: %f",self.imageView.frame.origin.x);
     NSLog(@"self.imageView.frame.origin.y: %f",self.imageView.frame.origin.y);
     NSLog(@"self.imageView.image.size.width: %f",self.imageView.image.size.width);
+     */
     
     _myLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.imageView.frame.size.width, 100)];
-    _myLabel.text = @"BOOM";
+    //_myLabel.text = @"I \U00002764 BOOM";
+    _myLabel.text = @"I \U00002764 \U0001F37A";
     _myLabel.textColor = [UIColor whiteColor];
     _myLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -224,6 +236,38 @@ BOOL isPad() {
     
     
 }
+
+//Method for getting the dimensions of the image containined within the UIImageView, so the UIImageView can be resized
+- (CGRect) getFrameOfImage:(UIImageView *) imgView
+{
+    //if(!imgView.loaded)
+    //    return CGRectZero;
+    
+    CGSize imgSize      = imgView.image.size;
+    CGSize frameSize    = imgView.frame.size;
+    
+    CGRect resultFrame;
+    
+    if(imgSize.width < frameSize.width && imgSize.height < frameSize.height)
+    {
+        resultFrame.size    = imgSize;
+    }
+    else
+    {
+        float widthRatio  = imgSize.width  / frameSize.width;
+        float heightRatio = imgSize.height / frameSize.height;
+        
+        float maxRatio = MAX (widthRatio , heightRatio);
+        NSLog(@"widthRatio = %.2f , heightRatio = %.2f , maxRatio = %.2f" , widthRatio , heightRatio , maxRatio);
+        
+        resultFrame.size = CGSizeMake(imgSize.width / maxRatio, imgSize.height / maxRatio);
+    }
+    
+    resultFrame.origin  = CGPointMake(imgView.center.x - resultFrame.size.width/2 , imgView.center.y - resultFrame.size.height/2);
+    
+    return resultFrame;
+}
+
 
 -(IBAction)btnCaptureImageClicked:(id)sender{
     [self createImage:self.imageView];
